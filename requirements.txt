@@ -1,12 +1,9 @@
-streamlit
-pandas
-playwright
-openpyxl
-requests
-beautifulsoup4
-countrystatecity-countries
+streamlit>=1.35
+pandas>=2.1
+playwright>=1.40
+openpyxl>=3.1
+requests>=2.31
+beautifulsoup4>=4.12
 
-# Removed unused dependencies (code uses html.parser + openpyxl engine):
-# - xlsxwriter   (openpyxl is used for Excel output)
-# - lxml         (BeautifulSoup uses the built-in html.parser)
-# - python-dateutil (not imported anywhere)
+# Playwright browser installation (separate from pip):
+#   playwright install chromium
