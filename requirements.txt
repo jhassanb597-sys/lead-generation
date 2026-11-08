@@ -1,0 +1,12 @@
+streamlit
+pandas
+playwright
+openpyxl
+requests
+beautifulsoup4
+countrystatecity-countries
+
+# Removed unused dependencies (code uses html.parser + openpyxl engine):
+# - xlsxwriter   (openpyxl is used for Excel output)
+# - lxml         (BeautifulSoup uses the built-in html.parser)
+# - python-dateutil (not imported anywhere)

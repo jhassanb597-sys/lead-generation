@@ -1,0 +1,18 @@
+# Lead Empire - Local data and caches
+data/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Streamlit secrets
+.streamlit/secrets.toml
+
+# Virtual environments
+venv/
+.env
+*.env
+
+# OS
+.DS_Store
+Thumbs.db
