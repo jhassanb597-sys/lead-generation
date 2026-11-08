@@ -1,0 +1,38 @@
+name: CI — Syntax & Import Check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest
+      
+      - name: Syntax check
+        run: |
+          python -m py_compile app.py
+          python -m py_compile sectors.py
+          python -m py_compile schema.py
+          python -m py_compile scoring.py
+          python -m py_compile utils.py
+          python -m py_compile enrich.py
+          python -m py_compile outreach.py
+      
+      - name: Run tests
+        run: |
+          if [ -f test_app.py ]; then pytest test_app.py -v; else echo "No test file found"; fi
